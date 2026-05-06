@@ -1,0 +1,88 @@
+.business-summary {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avg-token-card,
+.csat-card {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.avg-token-card {
+  background: linear-gradient(135deg, #1e3a8a, #1d4ed8, #0369a1);
+  color: #fff;
+}
+
+.atc-val {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.atc-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.atc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.csat-card {
+  background: #fff;
+  text-align: center;
+}
+
+.ring-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 6px;
+}
+
+.ring-wrap svg {
+  transform: rotate(-90deg);
+}
+
+.rbg,
+.rfill {
+  fill: none;
+  stroke-width: 8;
+}
+
+.rbg {
+  stroke: rgba(0, 0, 0, 0.06);
+}
+
+.rfill {
+  stroke: var(--green);
+  stroke-linecap: round;
+  stroke-dasharray: 219;
+  stroke-dashoffset: 17.52;
+}
+
+.ring-val {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+}

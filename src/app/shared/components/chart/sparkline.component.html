@@ -1,0 +1,11 @@
+<div class="spark-row">
+  <div class="spark-wrap" aria-hidden="true">
+    <span
+      class="spark-bar"
+      *ngFor="let value of sparkline.values; let last = last"
+      [style.height.px]="height(value)"
+      [style.opacity]="last ? 1 : 0.55"
+    ></span>
+  </div>
+  <span class="trend" [ngClass]="'trend-' + (sparkline.trendDirection ?? 'neutral')">{{ sparkline.trend }}</span>
+</div>

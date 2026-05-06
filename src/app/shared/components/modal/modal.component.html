@@ -1,0 +1,49 @@
+<div class="overlay" (click)="closed.emit()" *ngIf="detail as data">
+  <section class="modal" role="dialog" aria-modal="true" [attr.aria-label]="data.title" (click)="$event.stopPropagation()">
+    <div class="modal-hdr">
+      <div class="modal-title">{{ data.title }}</div>
+      <button class="modal-close" type="button" aria-label="Close detail modal" (click)="closed.emit()">x</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-top" [ngClass]="'tone-' + data.tone">
+        <div class="modal-big">{{ data.value }}</div>
+        <div class="modal-info">
+          <h3>{{ data.title }}</h3>
+          <p>{{ data.summary }}</p>
+        </div>
+      </div>
+      <div class="modal-tags">
+        <span class="m-tag" *ngFor="let tag of data.tags">{{ tag }}</span>
+      </div>
+      <div class="priority-highlight" *ngFor="let alert of data.highlights">
+        <div class="ph-title">{{ alert.title }}</div>
+        <p>{{ alert.description }}</p>
+      </div>
+      <div class="modal-trend" *ngIf="data.trend as trendData">
+        <div class="modal-trend-title">5-Day Trend</div>
+        <div class="trend-bars">
+          <div class="t-col" *ngFor="let value of trendData.values; let i = index">
+            <div class="t-barval">{{ value | number }}</div>
+            <div class="t-bar" [style.height.px]="trendHeight(value)" [style.opacity]="i === trendData.values.length - 1 ? 1 : 0.4"></div>
+            <div class="t-lbl">{{ trendData.labels[i] }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="table-shell" *ngIf="data.table as table">
+        <table class="dtable">
+          <thead>
+            <tr><th *ngFor="let header of table.headers">{{ header }}</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of table.rows">
+              <td *ngFor="let cell of row; let last = last">
+                <span *ngIf="last && isStatus(cell); else plainCell" class="chip" [ngClass]="'ch-' + cell">{{ statusLabels[cell] }}</span>
+                <ng-template #plainCell>{{ cell }}</ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

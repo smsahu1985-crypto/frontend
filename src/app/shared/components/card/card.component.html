@@ -1,0 +1,17 @@
+<button class="metric-card" [ngClass]="['tone-' + card.tone, card.critical ? 'critical-pulse' : '']" type="button" (click)="selected.emit(card.key)">
+  <span class="crit-badge" *ngIf="card.critical"></span>
+  <div class="card-top">
+    <span class="card-icon" aria-hidden="true"></span>
+    <span class="badge">{{ card.badge }}</span>
+  </div>
+  <div class="main-val">{{ card.value }}</div>
+  <div class="card-label">{{ card.title }}</div>
+  <p class="card-subtitle">{{ card.subtitle }}</p>
+  <div class="hi-rows" *ngIf="card.highlights?.length">
+    <div class="hi-row" *ngFor="let item of card.highlights" [class.hi-priority]="item.emphasis">
+      <span class="hi-lbl">{{ item.label }}</span>
+      <span class="hi-val" [ngClass]="'tone-text-' + item.tone">{{ item.value }}</span>
+    </div>
+  </div>
+  <app-sparkline *ngIf="card.sparkline" [sparkline]="card.sparkline"></app-sparkline>
+</button>
