@@ -1,0 +1,43 @@
+<section class="feature-panel" *ngIf="dashboard as data; else loadingState">
+  <div class="hero-strip">
+    <div class="hero-info">
+      <div class="hero-title">{{ data.title }}</div>
+      <div class="hero-sub">{{ data.subtitle }}</div>
+    </div>
+    <div class="hero-kpis">
+      <app-kpi *ngFor="let kpi of data.heroKpis" [kpi]="kpi" (selected)="openDetail($event)"></app-kpi>
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="business-summary">
+      <button class="avg-token-card" type="button" (click)="openDetail('revenue')">
+        <div class="atc-val">Rs. 4,225</div>
+        <div class="atc-label">Average Token Value</div>
+        <div class="atc-grid">
+          <span>Accessories Rs. 1,540</span>
+          <span>Repair Rs. 2,685</span>
+        </div>
+      </button>
+      <button class="csat-card" type="button" (click)="openDetail('csat')">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 100 100" width="88" height="88" aria-hidden="true">
+            <circle class="rbg" cx="50" cy="50" r="35"></circle>
+            <circle class="rfill" cx="50" cy="50" r="35"></circle>
+          </svg>
+          <div class="ring-val">92%</div>
+        </div>
+        <strong>CSAT</strong>
+      </button>
+    </div>
+    <ng-container *ngFor="let section of data.sections">
+      <div class="divider"><span>{{ section.title }}</span></div>
+      <div class="card-grid" [ngClass]="'g' + section.columns">
+        <app-card *ngFor="let card of section.cards" [card]="card" (selected)="openDetail($event)"></app-card>
+      </div>
+    </ng-container>
+  </div>
+</section>
+<ng-template #loadingState>
+  <div class="loading">Loading business dashboard...</div>
+</ng-template>
+<app-modal [detail]="detail" (closed)="detail = undefined"></app-modal>

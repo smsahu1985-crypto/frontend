@@ -1,0 +1,49 @@
+.tabs {
+  display: flex;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 2px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tab {
+  padding: 14px 20px;
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 700;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+}
+
+.tab.active {
+  color: var(--blue);
+}
+
+.tab.active::after {
+  background: var(--blue);
+}
+
+.tab-badge {
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  font-size: 9px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  background: var(--blue-light);
+}

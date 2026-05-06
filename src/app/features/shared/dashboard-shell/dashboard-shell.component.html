@@ -1,0 +1,24 @@
+<section class="feature-panel" *ngIf="dashboard as data; else loadingState">
+  <div class="hero-strip">
+    <div class="hero-info">
+      <div class="hero-title">{{ data.title }}</div>
+      <div class="hero-sub">{{ data.subtitle }}</div>
+      <div class="refresh">Last Refresh: {{ refreshTime }}</div>
+    </div>
+    <div class="hero-kpis">
+      <app-kpi *ngFor="let kpi of data.heroKpis" [kpi]="kpi" (selected)="detailRequested.emit($event)"></app-kpi>
+    </div>
+  </div>
+  <div class="body-content">
+    <app-metric-grid
+      *ngFor="let section of data.sections"
+      [title]="section.title"
+      [columns]="section.columns"
+      [cards]="section.cards"
+      (selected)="detailRequested.emit($event)"
+    ></app-metric-grid>
+  </div>
+</section>
+<ng-template #loadingState>
+  <div class="loading" *ngIf="loading">Loading dashboard...</div>
+</ng-template>

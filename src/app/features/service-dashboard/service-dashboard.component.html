@@ -1,0 +1,6 @@
+<app-dashboard-shell
+  [dashboard]="dashboard"
+  [loading]="loading"
+  (detailRequested)="openDetail($event)"
+></app-dashboard-shell>
+<app-modal [detail]="detail" (closed)="detail = undefined"></app-modal>

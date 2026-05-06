@@ -1,0 +1,6 @@
+<nav class="tabs" aria-label="Dashboard views">
+  <a class="tab" *ngFor="let tab of tabs" [routerLink]="tab.route" routerLinkActive="active">
+    <span>{{ tab.label }}</span>
+    <span class="tab-badge" [ngClass]="'tone-text-' + tab.tone">{{ tab.badge }}</span>
+  </a>
+</nav>

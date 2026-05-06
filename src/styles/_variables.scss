@@ -1,0 +1,31 @@
+$font-family-base: 'DM Sans', system-ui, sans-serif;
+$font-family-mono: 'JetBrains Mono', monospace;
+
+:root {
+  --bg: #f0f4f8;
+  --bg-card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.14);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
+  --blue: #0066ff;
+  --blue-light: #e8f0ff;
+  --cyan: #00b4d8;
+  --cyan-light: #e0f7fc;
+  --orange: #f76c1b;
+  --orange-light: #fff3ec;
+  --yellow: #f5a623;
+  --yellow-light: #fffbec;
+  --green: #00b87c;
+  --green-light: #e8f8f3;
+  --red: #e8294a;
+  --red-light: #fff0f3;
+  --purple: #7c3aed;
+  --purple-light: #f3edff;
+  --text: #0d1b2a;
+  --text2: #4a6080;
+  --text3: #9ab0c8;
+  --header: #0a1628;
+  --font: #{$font-family-base};
+  --mono: #{$font-family-mono};
+}

@@ -1,0 +1,4 @@
+<div class="divider"><span>{{ title }}</span></div>
+<div class="card-grid" [ngClass]="'g' + columns">
+  <app-card *ngFor="let card of cards" [card]="card" (selected)="selected.emit($event)"></app-card>
+</div>

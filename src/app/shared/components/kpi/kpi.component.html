@@ -1,0 +1,6 @@
+<button class="hero-kpi" [ngClass]="'tone-' + kpi.tone" type="button" (click)="selected.emit(kpi.modalKey ?? kpi.key)">
+  <span class="alert-dot" *ngIf="kpi.alert"></span>
+  <span class="hk-val">{{ kpi.value }}</span>
+  <span class="hk-label">{{ kpi.label }}</span>
+  <span class="hk-sub">{{ kpi.subLabel }}</span>
+</button>

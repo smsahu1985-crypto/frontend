@@ -1,0 +1,23 @@
+<section class="feature-panel" *ngIf="dashboard as data; else loadingState">
+  <div class="hero-strip">
+    <div class="hero-info">
+      <div class="hero-title">{{ data.title }}</div>
+      <div class="hero-sub">{{ data.subtitle }}</div>
+    </div>
+    <div class="hero-kpis">
+      <app-kpi *ngFor="let kpi of data.heroKpis" [kpi]="kpi" (selected)="openDetail($event)"></app-kpi>
+    </div>
+  </div>
+  <div class="body-content">
+    <ng-container *ngFor="let section of data.sections">
+      <div class="divider"><span>{{ section.title }}</span></div>
+      <div class="card-grid" [ngClass]="'g' + section.columns">
+        <app-card *ngFor="let card of section.cards" [card]="card" (selected)="openDetail($event)"></app-card>
+      </div>
+    </ng-container>
+  </div>
+</section>
+<ng-template #loadingState>
+  <div class="loading">Loading operations dashboard...</div>
+</ng-template>
+<app-modal [detail]="detail" (closed)="detail = undefined"></app-modal>
